@@ -30,7 +30,7 @@ class ChoiceInline(admin.StackedInline):
 
 class QuestionAdmin(admin.ModelAdmin):
     inlines = [ChoiceInline]
-    list_display = ['questionContent']
+    #list_display = ['questionContent']
 
 # <HINT> Register Question and Choice models here
 
