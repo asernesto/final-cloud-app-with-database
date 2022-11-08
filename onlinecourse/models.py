@@ -12,10 +12,7 @@ import uuid
 
 # Instructor model
 class Instructor(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     full_time = models.BooleanField(default=True)
     total_learners = models.IntegerField()
 
@@ -25,10 +22,7 @@ class Instructor(models.Model):
 
 # Learner model
 class Learner(models.Model):
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     STUDENT = 'student'
     DEVELOPER = 'developer'
     DATA_SCIENTIST = 'data_scientist'
@@ -104,7 +98,7 @@ class Enrollment(models.Model):
 class Question(models.Model):
     # Foreign key to lesson
     course = models.ForeignKey(Course, on_delete=models.CASCADE)
-    #lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
     # question text
     question_text = models.TextField()
     # question grade/mark
