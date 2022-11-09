@@ -64,11 +64,14 @@
                             <!-- <HINT> Each example will have many questions -->
                                 {% for question in course.question_set.all %}
                                 <div class="card mt-1">
-                                    <div class="card-header"><h5>{{ question.questionContent }}</h5></div>
+                                    <div class="card-header"><h5>{{ question.question_text}}</h5></div>
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <!-- <HINT> Each question will have many choices -->
                                             {% for choice in question.choice_set.all %}
+                                            <!-- <HINT> Create a form to collect the selected choices for all questions -->
+                                            <!-- <HINT> For each question choice, you may create a checkbox input like
+                                            <input type="check" name="choice_{{choice.id}}" id="{{choice.id}}" ...>-->
                                             <div class="form-check">
                                                 <label class="form-check-label">
                                                     <input type="checkbox" name="choice_{{choice.id}}"
@@ -84,14 +87,8 @@
                                 </div>
                             </form>
                         </div>
-                    {% endif %}
-
-                <!-- <HINT> Create a form to collect the selected choices for all questions -->
-                <!-- <HINT> For each question choice, you may create a checkbox input like
-                <input type="check" name="choice_{{choice.id}}" id="{{choice.id}}" ...>
-                -->
+                    {% endif %}              
             </div>
-
                 <!--Check here to see more details Bootstrap checkbox
                 https://www.w3schools.com/bootstrap4/bootstrap_forms_inputs.asp-->
         </div>
